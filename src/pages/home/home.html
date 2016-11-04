@@ -1,0 +1,26 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            Listagem de Usuários
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="setFilteredUsers()">
+
+    </ion-searchbar>
+    <ion-list>
+        <ion-item *ngFor="let user of users">
+            <ion-thumbnail item-left>
+                <img [src]="user.picture.medium" alt="Imagem do usuário">
+            </ion-thumbnail>
+            <h2>
+                {{user.name.first}} {{user.name.last}}
+            </h2>
+            <p>
+                {{user.email}} <br /> {{user.dob | date:"dd/MM/yyyy HH:mm" }}
+            </p>
+        </ion-item>
+    </ion-list>
+</ion-content>
